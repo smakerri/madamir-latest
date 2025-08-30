@@ -1,16 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-  ext {
-    buildToolsVersion = "35.0.0"
-    minSdkVersion = 24
-    compileSdkVersion = 35
-    targetSdkVersion = 35
-    ndkVersion = "27.1.12297006"
-    kotlinVersion = "2.0.21"
-    googlePlayServicesAuthVersion = "20.7.0" 
-
-  }
   repositories {
     google()
     mavenCentral()
@@ -23,11 +13,11 @@ buildscript {
 }
 
 def reactNativeAndroidDir = new File(
-        providers.exec {
-          workingDir(rootDir)
-          commandLine("node", "--print", "require.resolve('react-native/package.json')")
-        }.standardOutput.asText.get().trim(),
-        "../android"
+  providers.exec {
+    workingDir(rootDir)
+    commandLine("node", "--print", "require.resolve('react-native/package.json')")
+  }.standardOutput.asText.get().trim(),
+  "../android"
 )
 
 allprojects {
