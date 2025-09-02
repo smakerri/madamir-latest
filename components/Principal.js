@@ -421,6 +421,7 @@ class Principal extends React.Component {
         textBody: 'Félicitation, vous avez gagné la partie',
         buttonText: 'Suivant',
         callback: () => {
+          this.animationRestartLevel();
           Popup.hide(); indexLevel++; stage++; this.initGame();;
         }
       })
@@ -741,8 +742,6 @@ class Principal extends React.Component {
       if (resetBall == false) {
         global.jumpCount++;
       }
-
-
       //  console.log('next case x: ',global.nextCase.x);
       // console.log('next case y: ',global.nextCase.y);
       //this.currentAnimation = new Animated.ValueXY({ x: next.x, y: next.y });
